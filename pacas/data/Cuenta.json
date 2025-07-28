@@ -1,0 +1,9 @@
+[
+    {
+        "id": 1,
+        "correoElectronico": "maria@gmail.com",
+        "clave": "1234",
+        "rol": "ADMINISTRADOR",
+        "id_persona": 1
+    }
+]

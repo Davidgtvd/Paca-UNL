@@ -1,0 +1,11 @@
+[
+    {
+        "id": 1,
+        "nombre": "María",
+        "apellido": "González",
+        "identificacion": "CEDULA",
+        "telefono": "0987654321",
+        "sexo": "FEMENINO",
+        "fecha_nacimiento": "Jul 6, 2025, 3:48:28 PM"
+    }
+]

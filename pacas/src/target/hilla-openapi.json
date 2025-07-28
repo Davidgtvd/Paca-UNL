@@ -1,0 +1,1545 @@
+{
+  "openapi" : "3.0.1",
+  "info" : {
+    "title" : "Hilla Application",
+    "version" : "1.0.0"
+  },
+  "servers" : [
+    {
+      "url" : "http://localhost:8080/connect",
+      "description" : "Hilla Backend"
+    }
+  ],
+  "tags" : [
+    {
+      "name" : "CompraService",
+      "x-class-name" : "org.unl.pacas.base.controller.services.CompraService"
+    },
+    {
+      "name" : "DetalleFacturaServices",
+      "x-class-name" : "org.unl.pacas.base.controller.services.DetalleFacturaServices"
+    },
+    {
+      "name" : "PagoServices",
+      "x-class-name" : "org.unl.pacas.base.controller.services.PagoServices"
+    },
+    {
+      "name" : "ProductoServices",
+      "x-class-name" : "org.unl.pacas.base.controller.services.ProductoServices"
+    }
+  ],
+  "paths" : {
+    "/CompraService/createCompra" : {
+      "post" : {
+        "tags" : [
+          "CompraService"
+        ],
+        "operationId" : "CompraService_createCompra_POST",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "subtotal" : {
+                    "type" : "number",
+                    "format" : "double",
+                    "x-validation-constraints" : [
+                      {
+                        "simpleName" : "NotNull"
+                      }
+                    ],
+                    "x-java-type" : "double"
+                  },
+                  "nroFactura" : {
+                    "type" : "string",
+                    "nullable" : true,
+                    "x-validation-constraints" : [
+                      {
+                        "simpleName" : "NotEmpty"
+                      }
+                    ],
+                    "x-java-type" : "java.lang.String"
+                  },
+                  "iva" : {
+                    "type" : "number",
+                    "format" : "double",
+                    "x-validation-constraints" : [
+                      {
+                        "simpleName" : "NotNull"
+                      }
+                    ],
+                    "x-java-type" : "double"
+                  },
+                  "total" : {
+                    "type" : "number",
+                    "format" : "double",
+                    "x-validation-constraints" : [
+                      {
+                        "simpleName" : "NotNull"
+                      }
+                    ],
+                    "x-java-type" : "double"
+                  },
+                  "id_producto" : {
+                    "type" : "integer",
+                    "format" : "int32",
+                    "nullable" : true,
+                    "x-validation-constraints" : [
+                      {
+                        "simpleName" : "NotNull"
+                      }
+                    ],
+                    "x-java-type" : "java.lang.Integer"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : ""
+          }
+        }
+      }
+    },
+    "/CompraService/listAllCompra" : {
+      "post" : {
+        "tags" : [
+          "CompraService"
+        ],
+        "operationId" : "CompraService_listAllCompra_POST",
+        "responses" : {
+          "200" : {
+            "description" : "",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "nullable" : true,
+                  "x-java-type" : "java.util.List",
+                  "items" : {
+                    "nullable" : true,
+                    "anyOf" : [
+                      {
+                        "$ref" : "#/components/schemas/org.unl.pacas.base.models.Compra"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/CompraService/listCompra" : {
+      "post" : {
+        "tags" : [
+          "CompraService"
+        ],
+        "operationId" : "CompraService_listCompra_POST",
+        "responses" : {
+          "200" : {
+            "description" : "",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "nullable" : true,
+                  "x-java-type" : "java.util.List",
+                  "items" : {
+                    "type" : "object",
+                    "additionalProperties" : {
+                      "type" : "string",
+                      "nullable" : true,
+                      "x-java-type" : "java.lang.String"
+                    },
+                    "nullable" : true,
+                    "x-java-type" : "java.util.HashMap"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/CompraService/updateCompra" : {
+      "post" : {
+        "tags" : [
+          "CompraService"
+        ],
+        "operationId" : "CompraService_updateCompra_POST",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "id" : {
+                    "type" : "integer",
+                    "format" : "int32",
+                    "nullable" : true,
+                    "x-validation-constraints" : [
+                      {
+                        "simpleName" : "NotNull"
+                      }
+                    ],
+                    "x-java-type" : "java.lang.Integer"
+                  },
+                  "subtotal" : {
+                    "type" : "number",
+                    "format" : "double",
+                    "x-validation-constraints" : [
+                      {
+                        "simpleName" : "NotNull"
+                      }
+                    ],
+                    "x-java-type" : "double"
+                  },
+                  "nroFactura" : {
+                    "type" : "string",
+                    "nullable" : true,
+                    "x-validation-constraints" : [
+                      {
+                        "simpleName" : "NotEmpty"
+                      }
+                    ],
+                    "x-java-type" : "java.lang.String"
+                  },
+                  "iva" : {
+                    "type" : "number",
+                    "format" : "double",
+                    "x-validation-constraints" : [
+                      {
+                        "simpleName" : "NotNull"
+                      }
+                    ],
+                    "x-java-type" : "double"
+                  },
+                  "total" : {
+                    "type" : "number",
+                    "format" : "double",
+                    "x-validation-constraints" : [
+                      {
+                        "simpleName" : "NotNull"
+                      }
+                    ],
+                    "x-java-type" : "double"
+                  },
+                  "id_producto" : {
+                    "type" : "integer",
+                    "format" : "int32",
+                    "nullable" : true,
+                    "x-validation-constraints" : [
+                      {
+                        "simpleName" : "NotNull"
+                      }
+                    ],
+                    "x-java-type" : "java.lang.Integer"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : ""
+          }
+        }
+      }
+    },
+    "/DetalleFacturaServices/createFactura" : {
+      "post" : {
+        "tags" : [
+          "DetalleFacturaServices"
+        ],
+        "operationId" : "DetalleFacturaServices_createFactura_POST",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "total" : {
+                    "type" : "number",
+                    "format" : "double",
+                    "x-validation-constraints" : [
+                      {
+                        "simpleName" : "NotNull"
+                      }
+                    ],
+                    "x-java-type" : "double"
+                  },
+                  "cantidad" : {
+                    "type" : "integer",
+                    "format" : "int32",
+                    "nullable" : true,
+                    "x-validation-constraints" : [
+                      {
+                        "simpleName" : "NotNull"
+                      }
+                    ],
+                    "x-java-type" : "java.lang.Integer"
+                  },
+                  "precioUnitario" : {
+                    "type" : "number",
+                    "format" : "double",
+                    "x-validation-constraints" : [
+                      {
+                        "simpleName" : "NotNull"
+                      }
+                    ],
+                    "x-java-type" : "double"
+                  },
+                  "id_compra" : {
+                    "type" : "integer",
+                    "format" : "int32",
+                    "nullable" : true,
+                    "x-validation-constraints" : [
+                      {
+                        "simpleName" : "NotNull"
+                      }
+                    ],
+                    "x-java-type" : "java.lang.Integer"
+                  },
+                  "id_producto" : {
+                    "type" : "integer",
+                    "format" : "int32",
+                    "nullable" : true,
+                    "x-validation-constraints" : [
+                      {
+                        "simpleName" : "NotNull"
+                      }
+                    ],
+                    "x-java-type" : "java.lang.Integer"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : ""
+          }
+        }
+      }
+    },
+    "/DetalleFacturaServices/listAll" : {
+      "post" : {
+        "tags" : [
+          "DetalleFacturaServices"
+        ],
+        "operationId" : "DetalleFacturaServices_listAll_POST",
+        "responses" : {
+          "200" : {
+            "description" : "",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "nullable" : true,
+                  "x-java-type" : "java.util.List",
+                  "items" : {
+                    "type" : "object",
+                    "additionalProperties" : {
+                      "type" : "object"
+                    },
+                    "nullable" : true,
+                    "x-java-type" : "java.util.HashMap"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/DetalleFacturaServices/listAllDetalleFactura" : {
+      "post" : {
+        "tags" : [
+          "DetalleFacturaServices"
+        ],
+        "operationId" : "DetalleFacturaServices_listAllDetalleFactura_POST",
+        "responses" : {
+          "200" : {
+            "description" : "",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "nullable" : true,
+                  "x-java-type" : "java.util.List",
+                  "items" : {
+                    "nullable" : true,
+                    "anyOf" : [
+                      {
+                        "$ref" : "#/components/schemas/org.unl.pacas.base.models.DetalleFactura"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/DetalleFacturaServices/updateFactura" : {
+      "post" : {
+        "tags" : [
+          "DetalleFacturaServices"
+        ],
+        "operationId" : "DetalleFacturaServices_updateFactura_POST",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "id" : {
+                    "type" : "integer",
+                    "format" : "int32",
+                    "nullable" : true,
+                    "x-validation-constraints" : [
+                      {
+                        "simpleName" : "NotNull"
+                      }
+                    ],
+                    "x-java-type" : "java.lang.Integer"
+                  },
+                  "total" : {
+                    "type" : "number",
+                    "format" : "double",
+                    "x-validation-constraints" : [
+                      {
+                        "simpleName" : "NotNull"
+                      }
+                    ],
+                    "x-java-type" : "double"
+                  },
+                  "cantidad" : {
+                    "type" : "integer",
+                    "format" : "int32",
+                    "nullable" : true,
+                    "x-validation-constraints" : [
+                      {
+                        "simpleName" : "NotNull"
+                      }
+                    ],
+                    "x-java-type" : "java.lang.Integer"
+                  },
+                  "precioUnitario" : {
+                    "type" : "number",
+                    "format" : "double",
+                    "x-validation-constraints" : [
+                      {
+                        "simpleName" : "NotNull"
+                      }
+                    ],
+                    "x-java-type" : "double"
+                  },
+                  "id_compra" : {
+                    "type" : "integer",
+                    "format" : "int32",
+                    "nullable" : true,
+                    "x-validation-constraints" : [
+                      {
+                        "simpleName" : "NotNull"
+                      }
+                    ],
+                    "x-java-type" : "java.lang.Integer"
+                  },
+                  "id_producto" : {
+                    "type" : "integer",
+                    "format" : "int32",
+                    "nullable" : true,
+                    "x-validation-constraints" : [
+                      {
+                        "simpleName" : "NotNull"
+                      }
+                    ],
+                    "x-java-type" : "java.lang.Integer"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : ""
+          }
+        }
+      }
+    },
+    "/PagoServices/checkout" : {
+      "post" : {
+        "tags" : [
+          "PagoServices"
+        ],
+        "operationId" : "PagoServices_checkout_POST",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "total" : {
+                    "type" : "number",
+                    "format" : "float",
+                    "x-java-type" : "float"
+                  },
+                  "currency" : {
+                    "type" : "string",
+                    "nullable" : true,
+                    "x-java-type" : "java.lang.String"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object",
+                  "additionalProperties" : {
+                    "type" : "object"
+                  },
+                  "nullable" : true,
+                  "x-java-type" : "java.util.Map"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/PagoServices/consultarEstadoPago" : {
+      "post" : {
+        "tags" : [
+          "PagoServices"
+        ],
+        "operationId" : "PagoServices_consultarEstadoPago_POST",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "idCheckout" : {
+                    "type" : "string",
+                    "nullable" : true,
+                    "x-java-type" : "java.lang.String"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object",
+                  "additionalProperties" : {
+                    "type" : "object"
+                  },
+                  "nullable" : true,
+                  "x-java-type" : "java.util.HashMap"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/PagoServices/crearPago" : {
+      "post" : {
+        "tags" : [
+          "PagoServices"
+        ],
+        "operationId" : "PagoServices_crearPago_POST",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "estado" : {
+                    "type" : "boolean",
+                    "nullable" : true,
+                    "x-java-type" : "java.lang.Boolean"
+                  },
+                  "metodoPago" : {
+                    "nullable" : true,
+                    "anyOf" : [
+                      {
+                        "$ref" : "#/components/schemas/org.unl.pacas.base.models.MetodoPagoEnum"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : ""
+          }
+        }
+      }
+    },
+    "/PagoServices/createPago" : {
+      "post" : {
+        "tags" : [
+          "PagoServices"
+        ],
+        "operationId" : "PagoServices_createPago_POST",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "codigo_seguridad" : {
+                    "type" : "string",
+                    "nullable" : true,
+                    "x-validation-constraints" : [
+                      {
+                        "simpleName" : "NotEmpty"
+                      }
+                    ],
+                    "x-java-type" : "java.lang.String"
+                  },
+                  "metodoPago" : {
+                    "type" : "string",
+                    "nullable" : true,
+                    "x-validation-constraints" : [
+                      {
+                        "simpleName" : "NotEmpty"
+                      }
+                    ],
+                    "x-java-type" : "java.lang.String"
+                  },
+                  "estado" : {
+                    "type" : "boolean",
+                    "nullable" : true,
+                    "x-java-type" : "java.lang.Boolean"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : ""
+          }
+        }
+      }
+    },
+    "/PagoServices/listAllPagos" : {
+      "post" : {
+        "tags" : [
+          "PagoServices"
+        ],
+        "operationId" : "PagoServices_listAllPagos_POST",
+        "responses" : {
+          "200" : {
+            "description" : "",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "nullable" : true,
+                  "x-java-type" : "java.util.List",
+                  "items" : {
+                    "nullable" : true,
+                    "anyOf" : [
+                      {
+                        "$ref" : "#/components/schemas/org.unl.pacas.base.models.Pago"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/PagoServices/listMetodoPago" : {
+      "post" : {
+        "tags" : [
+          "PagoServices"
+        ],
+        "operationId" : "PagoServices_listMetodoPago_POST",
+        "responses" : {
+          "200" : {
+            "description" : "",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "nullable" : true,
+                  "x-java-type" : "java.util.List",
+                  "items" : {
+                    "type" : "string",
+                    "nullable" : true,
+                    "x-java-type" : "java.lang.String"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/PagoServices/updatePago" : {
+      "post" : {
+        "tags" : [
+          "PagoServices"
+        ],
+        "operationId" : "PagoServices_updatePago_POST",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "id" : {
+                    "type" : "integer",
+                    "format" : "int32",
+                    "nullable" : true,
+                    "x-java-type" : "java.lang.Integer"
+                  },
+                  "codigo_seguridad" : {
+                    "type" : "string",
+                    "nullable" : true,
+                    "x-validation-constraints" : [
+                      {
+                        "simpleName" : "NotEmpty"
+                      }
+                    ],
+                    "x-java-type" : "java.lang.String"
+                  },
+                  "metodoPago" : {
+                    "type" : "string",
+                    "nullable" : true,
+                    "x-validation-constraints" : [
+                      {
+                        "simpleName" : "NotEmpty"
+                      }
+                    ],
+                    "x-java-type" : "java.lang.String"
+                  },
+                  "estado" : {
+                    "type" : "boolean",
+                    "nullable" : true,
+                    "x-java-type" : "java.lang.Boolean"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : ""
+          }
+        }
+      }
+    },
+    "/ProductoServices/buscarBinariaLineal" : {
+      "post" : {
+        "tags" : [
+          "ProductoServices"
+        ],
+        "operationId" : "ProductoServices_buscarBinariaLineal_POST",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "atributo" : {
+                    "type" : "string",
+                    "nullable" : true,
+                    "x-validation-constraints" : [
+                      {
+                        "simpleName" : "NotEmpty"
+                      },
+                      {
+                        "simpleName" : "NotBlank"
+                      }
+                    ],
+                    "x-java-type" : "java.lang.String"
+                  },
+                  "valor" : {
+                    "type" : "string",
+                    "nullable" : true,
+                    "x-validation-constraints" : [
+                      {
+                        "simpleName" : "NotBlank"
+                      },
+                      {
+                        "simpleName" : "NotEmpty"
+                      }
+                    ],
+                    "x-java-type" : "java.lang.String"
+                  },
+                  "tipo" : {
+                    "type" : "integer",
+                    "format" : "int32",
+                    "nullable" : true,
+                    "x-java-type" : "java.lang.Integer"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "nullable" : true,
+                  "x-java-type" : "java.util.List",
+                  "items" : {
+                    "type" : "object",
+                    "additionalProperties" : {
+                      "type" : "object"
+                    },
+                    "nullable" : true,
+                    "x-java-type" : "java.util.HashMap"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ProductoServices/busqueda" : {
+      "post" : {
+        "tags" : [
+          "ProductoServices"
+        ],
+        "operationId" : "ProductoServices_busqueda_POST",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "atributo" : {
+                    "type" : "string",
+                    "nullable" : true,
+                    "x-validation-constraints" : [
+                      {
+                        "simpleName" : "NotEmpty"
+                      },
+                      {
+                        "simpleName" : "NotBlank"
+                      }
+                    ],
+                    "x-java-type" : "java.lang.String"
+                  },
+                  "valor" : {
+                    "type" : "string",
+                    "nullable" : true,
+                    "x-validation-constraints" : [
+                      {
+                        "simpleName" : "NotBlank"
+                      },
+                      {
+                        "simpleName" : "NotEmpty"
+                      }
+                    ],
+                    "x-java-type" : "java.lang.String"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "nullable" : true,
+                  "x-java-type" : "java.util.List",
+                  "items" : {
+                    "type" : "object",
+                    "additionalProperties" : {
+                      "type" : "object"
+                    },
+                    "nullable" : true,
+                    "x-java-type" : "java.util.HashMap"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ProductoServices/createProducto" : {
+      "post" : {
+        "tags" : [
+          "ProductoServices"
+        ],
+        "operationId" : "ProductoServices_createProducto_POST",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "nombre" : {
+                    "type" : "string",
+                    "nullable" : true,
+                    "x-validation-constraints" : [
+                      {
+                        "simpleName" : "NotEmpty"
+                      }
+                    ],
+                    "x-java-type" : "java.lang.String"
+                  },
+                  "descripcion" : {
+                    "type" : "string",
+                    "nullable" : true,
+                    "x-validation-constraints" : [
+                      {
+                        "simpleName" : "NotEmpty"
+                      }
+                    ],
+                    "x-java-type" : "java.lang.String"
+                  },
+                  "imagen" : {
+                    "type" : "string",
+                    "nullable" : true,
+                    "x-validation-constraints" : [
+                      {
+                        "simpleName" : "NotEmpty"
+                      }
+                    ],
+                    "x-java-type" : "java.lang.String"
+                  },
+                  "precio" : {
+                    "type" : "number",
+                    "format" : "double",
+                    "nullable" : true,
+                    "x-java-type" : "java.lang.Double"
+                  },
+                  "stock" : {
+                    "type" : "integer",
+                    "format" : "int32",
+                    "nullable" : true,
+                    "x-java-type" : "java.lang.Integer"
+                  },
+                  "pvp" : {
+                    "type" : "number",
+                    "format" : "double",
+                    "nullable" : true,
+                    "x-java-type" : "java.lang.Double"
+                  },
+                  "categoria" : {
+                    "type" : "string",
+                    "nullable" : true,
+                    "x-validation-constraints" : [
+                      {
+                        "simpleName" : "NotEmpty"
+                      }
+                    ],
+                    "x-java-type" : "java.lang.String"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : ""
+          }
+        }
+      }
+    },
+    "/ProductoServices/deleteProducto" : {
+      "post" : {
+        "tags" : [
+          "ProductoServices"
+        ],
+        "operationId" : "ProductoServices_deleteProducto_POST",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "id" : {
+                    "type" : "integer",
+                    "format" : "int32",
+                    "nullable" : true,
+                    "x-java-type" : "java.lang.Integer"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : ""
+          }
+        }
+      }
+    },
+    "/ProductoServices/list" : {
+      "post" : {
+        "tags" : [
+          "ProductoServices"
+        ],
+        "operationId" : "ProductoServices_list_POST",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "pageable" : {
+                    "nullable" : true,
+                    "anyOf" : [
+                      {
+                        "$ref" : "#/components/schemas/com.vaadin.hilla.mappedtypes.Pageable"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "nullable" : true,
+                  "x-java-type" : "java.util.List",
+                  "items" : {
+                    "nullable" : true,
+                    "anyOf" : [
+                      {
+                        "$ref" : "#/components/schemas/org.unl.pacas.base.models.Producto"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ProductoServices/listAll" : {
+      "post" : {
+        "tags" : [
+          "ProductoServices"
+        ],
+        "operationId" : "ProductoServices_listAll_POST",
+        "responses" : {
+          "200" : {
+            "description" : "",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "nullable" : true,
+                  "x-java-type" : "java.util.List",
+                  "items" : {
+                    "nullable" : true,
+                    "anyOf" : [
+                      {
+                        "$ref" : "#/components/schemas/org.unl.pacas.base.models.Producto"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ProductoServices/listTipoCategoria" : {
+      "post" : {
+        "tags" : [
+          "ProductoServices"
+        ],
+        "operationId" : "ProductoServices_listTipoCategoria_POST",
+        "responses" : {
+          "200" : {
+            "description" : "",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "nullable" : true,
+                  "x-java-type" : "java.util.List",
+                  "items" : {
+                    "type" : "string",
+                    "nullable" : true,
+                    "x-java-type" : "java.lang.String"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ProductoServices/order" : {
+      "post" : {
+        "tags" : [
+          "ProductoServices"
+        ],
+        "operationId" : "ProductoServices_order_POST",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "columnId" : {
+                    "type" : "string",
+                    "nullable" : true,
+                    "x-validation-constraints" : [
+                      {
+                        "simpleName" : "NotEmpty"
+                      }
+                    ],
+                    "x-java-type" : "java.lang.String"
+                  },
+                  "dir" : {
+                    "type" : "integer",
+                    "format" : "int32",
+                    "nullable" : true,
+                    "x-java-type" : "java.lang.Integer"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "nullable" : true,
+                  "x-java-type" : "java.util.List",
+                  "items" : {
+                    "nullable" : true,
+                    "anyOf" : [
+                      {
+                        "$ref" : "#/components/schemas/org.unl.pacas.base.models.Producto"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ProductoServices/updateProducto" : {
+      "post" : {
+        "tags" : [
+          "ProductoServices"
+        ],
+        "operationId" : "ProductoServices_updateProducto_POST",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "id" : {
+                    "type" : "integer",
+                    "format" : "int32",
+                    "nullable" : true,
+                    "x-java-type" : "java.lang.Integer"
+                  },
+                  "nombre" : {
+                    "type" : "string",
+                    "nullable" : true,
+                    "x-validation-constraints" : [
+                      {
+                        "simpleName" : "NotEmpty"
+                      }
+                    ],
+                    "x-java-type" : "java.lang.String"
+                  },
+                  "descripcion" : {
+                    "type" : "string",
+                    "nullable" : true,
+                    "x-validation-constraints" : [
+                      {
+                        "simpleName" : "NotEmpty"
+                      }
+                    ],
+                    "x-java-type" : "java.lang.String"
+                  },
+                  "imagen" : {
+                    "type" : "string",
+                    "nullable" : true,
+                    "x-validation-constraints" : [
+                      {
+                        "simpleName" : "NotEmpty"
+                      }
+                    ],
+                    "x-java-type" : "java.lang.String"
+                  },
+                  "precio" : {
+                    "type" : "number",
+                    "format" : "double",
+                    "nullable" : true,
+                    "x-java-type" : "java.lang.Double"
+                  },
+                  "stock" : {
+                    "type" : "integer",
+                    "format" : "int32",
+                    "nullable" : true,
+                    "x-java-type" : "java.lang.Integer"
+                  },
+                  "pvp" : {
+                    "type" : "number",
+                    "format" : "double",
+                    "nullable" : true,
+                    "x-java-type" : "java.lang.Double"
+                  },
+                  "categoria" : {
+                    "type" : "string",
+                    "nullable" : true,
+                    "x-validation-constraints" : [
+                      {
+                        "simpleName" : "NotEmpty"
+                      }
+                    ],
+                    "x-java-type" : "java.lang.String"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : ""
+          }
+        }
+      }
+    }
+  },
+  "components" : {
+    "schemas" : {
+      "org.unl.pacas.base.models.Compra" : {
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "integer",
+            "format" : "int32",
+            "nullable" : true,
+            "x-java-type" : "java.lang.Integer"
+          },
+          "subtotal" : {
+            "type" : "number",
+            "format" : "double",
+            "nullable" : true,
+            "x-java-type" : "java.lang.Double"
+          },
+          "nroFactura" : {
+            "type" : "string",
+            "nullable" : true,
+            "x-java-type" : "java.lang.String"
+          },
+          "iva" : {
+            "type" : "number",
+            "format" : "double",
+            "nullable" : true,
+            "x-java-type" : "java.lang.Double"
+          },
+          "total" : {
+            "type" : "number",
+            "format" : "double",
+            "nullable" : true,
+            "x-java-type" : "java.lang.Double"
+          },
+          "id_producto" : {
+            "type" : "integer",
+            "format" : "int32",
+            "nullable" : true,
+            "x-java-type" : "java.lang.Integer"
+          }
+        }
+      },
+      "org.unl.pacas.base.models.DetalleFactura" : {
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "integer",
+            "format" : "int32",
+            "nullable" : true,
+            "x-java-type" : "java.lang.Integer"
+          },
+          "total" : {
+            "type" : "number",
+            "format" : "double",
+            "nullable" : true,
+            "x-java-type" : "java.lang.Double"
+          },
+          "cantidad" : {
+            "type" : "integer",
+            "format" : "int32",
+            "nullable" : true,
+            "x-java-type" : "java.lang.Integer"
+          },
+          "precioUnitario" : {
+            "type" : "number",
+            "format" : "double",
+            "nullable" : true,
+            "x-java-type" : "java.lang.Double"
+          },
+          "id_compra" : {
+            "type" : "integer",
+            "format" : "int32",
+            "nullable" : true,
+            "x-java-type" : "java.lang.Integer"
+          },
+          "id_producto" : {
+            "type" : "integer",
+            "format" : "int32",
+            "nullable" : true,
+            "x-java-type" : "java.lang.Integer"
+          },
+          "id_persona" : {
+            "type" : "integer",
+            "format" : "int32",
+            "nullable" : true,
+            "x-java-type" : "java.lang.Integer"
+          }
+        }
+      },
+      "org.unl.pacas.base.models.MetodoPagoEnum" : {
+        "type" : "string",
+        "enum" : [
+          "TARJETA_DE_CREDITO",
+          "TARJETA_DE_DEBITO"
+        ]
+      },
+      "org.unl.pacas.base.models.Pago" : {
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "integer",
+            "format" : "int32",
+            "nullable" : true,
+            "x-java-type" : "java.lang.Integer"
+          },
+          "codigo_seguridad" : {
+            "type" : "string",
+            "nullable" : true,
+            "x-java-type" : "java.lang.String"
+          },
+          "metodoPago" : {
+            "nullable" : true,
+            "anyOf" : [
+              {
+                "$ref" : "#/components/schemas/org.unl.pacas.base.models.MetodoPagoEnum"
+              }
+            ]
+          },
+          "estado" : {
+            "type" : "boolean",
+            "nullable" : true,
+            "x-java-type" : "java.lang.Boolean"
+          }
+        }
+      },
+      "com.vaadin.hilla.mappedtypes.Pageable" : {
+        "type" : "object",
+        "properties" : {
+          "pageNumber" : {
+            "type" : "integer",
+            "format" : "int32",
+            "x-java-type" : "int"
+          },
+          "pageSize" : {
+            "type" : "integer",
+            "format" : "int32",
+            "x-java-type" : "int"
+          },
+          "sort" : {
+            "anyOf" : [
+              {
+                "$ref" : "#/components/schemas/com.vaadin.hilla.mappedtypes.Sort"
+              }
+            ]
+          }
+        }
+      },
+      "org.unl.pacas.base.models.Producto" : {
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "integer",
+            "format" : "int32",
+            "nullable" : true,
+            "x-java-type" : "java.lang.Integer"
+          },
+          "nombre" : {
+            "type" : "string",
+            "nullable" : true,
+            "x-java-type" : "java.lang.String"
+          },
+          "descripcion" : {
+            "type" : "string",
+            "nullable" : true,
+            "x-java-type" : "java.lang.String"
+          },
+          "imagen" : {
+            "type" : "string",
+            "nullable" : true,
+            "x-java-type" : "java.lang.String"
+          },
+          "precio" : {
+            "type" : "number",
+            "format" : "double",
+            "nullable" : true,
+            "x-java-type" : "java.lang.Double"
+          },
+          "stock" : {
+            "type" : "integer",
+            "format" : "int32",
+            "nullable" : true,
+            "x-java-type" : "java.lang.Integer"
+          },
+          "pvp" : {
+            "type" : "number",
+            "format" : "double",
+            "nullable" : true,
+            "x-java-type" : "java.lang.Double"
+          },
+          "categoria" : {
+            "nullable" : true,
+            "anyOf" : [
+              {
+                "$ref" : "#/components/schemas/org.unl.pacas.base.models.CategoriaEnum"
+              }
+            ]
+          }
+        }
+      },
+      "com.vaadin.hilla.mappedtypes.Sort" : {
+        "type" : "object",
+        "properties" : {
+          "orders" : {
+            "type" : "array",
+            "x-java-type" : "java.util.List",
+            "items" : {
+              "nullable" : true,
+              "anyOf" : [
+                {
+                  "$ref" : "#/components/schemas/com.vaadin.hilla.mappedtypes.Order"
+                }
+              ]
+            }
+          }
+        }
+      },
+      "org.unl.pacas.base.models.CategoriaEnum" : {
+        "type" : "string",
+        "enum" : [
+          "MIXTA",
+          "ADULTO",
+          "VERANO_INVIERNO",
+          "NIÑO",
+          "DEPORTIVA"
+        ]
+      },
+      "com.vaadin.hilla.mappedtypes.Order" : {
+        "type" : "object",
+        "properties" : {
+          "direction" : {
+            "anyOf" : [
+              {
+                "$ref" : "#/components/schemas/org.springframework.data.domain.Sort$Direction"
+              }
+            ]
+          },
+          "property" : {
+            "type" : "string",
+            "x-validation-constraints" : [
+              {
+                "simpleName" : "NotBlank"
+              }
+            ],
+            "x-java-type" : "java.lang.String"
+          },
+          "ignoreCase" : {
+            "type" : "boolean",
+            "x-java-type" : "boolean"
+          },
+          "nullHandling" : {
+            "nullable" : true,
+            "anyOf" : [
+              {
+                "$ref" : "#/components/schemas/org.springframework.data.domain.Sort$NullHandling"
+              }
+            ]
+          }
+        }
+      },
+      "org.springframework.data.domain.Sort$Direction" : {
+        "type" : "string",
+        "enum" : [
+          "ASC",
+          "DESC"
+        ]
+      },
+      "org.springframework.data.domain.Sort$NullHandling" : {
+        "type" : "string",
+        "enum" : [
+          "NATIVE",
+          "NULLS_FIRST",
+          "NULLS_LAST"
+        ]
+      }
+    }
+  }
+}
