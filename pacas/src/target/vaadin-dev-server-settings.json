@@ -1,0 +1,18 @@
+{
+  "frontendFolder": "/media/maria/HDD/UNL/3A_Estructura/2025/pacas/src/main/frontend",
+  "themeFolder": "themes",
+  "themeResourceFolder": "/media/maria/HDD/UNL/3A_Estructura/2025/pacas/src/main/frontend/generated/jar-resources",
+  "staticOutput": "/media/maria/HDD/UNL/3A_Estructura/2025/pacas/target/classes/META-INF/VAADIN/webapp/VAADIN/static",
+  "generatedFolder": "generated",
+  "statsOutput": "/media/maria/HDD/UNL/3A_Estructura/2025/pacas/target/classes/META-INF/VAADIN/config",
+  "frontendBundleOutput": "/media/maria/HDD/UNL/3A_Estructura/2025/pacas/target/classes/META-INF/VAADIN/webapp",
+  "devBundleOutput": "/media/maria/HDD/UNL/3A_Estructura/2025/pacas/target/dev-bundle/webapp",
+  "devBundleStatsOutput": "/media/maria/HDD/UNL/3A_Estructura/2025/pacas/target/dev-bundle/config",
+  "i18nOutput": "target/classes/vaadin-i18n",
+  "jarResourcesFolder": "/media/maria/HDD/UNL/3A_Estructura/2025/pacas/src/main/frontend/generated/jar-resources",
+  "themeName": "default",
+  "clientServiceWorkerSource": "/media/maria/HDD/UNL/3A_Estructura/2025/pacas/target/sw.ts",
+  "pwaEnabled": false,
+  "offlineEnabled": false,
+  "offlinePath": "'offline.html'"
+}
